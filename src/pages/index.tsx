@@ -1,16 +1,16 @@
-import { motion } from "framer-motion"
-import { ArrowRight, Component, Palette, Zap } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { motion } from "framer-motion";
+import { ArrowRight, Component, Palette, Zap } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.5 }
-}
+};
 
 const staggerContainer = {
   animate: {
@@ -18,10 +18,10 @@ const staggerContainer = {
       staggerChildren: 0.1
     }
   }
-}
+};
 
 export default function IndexPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className="container mx-auto px-4 py-16 space-y-32">
@@ -33,18 +33,16 @@ export default function IndexPage() {
         transition={{ duration: 0.8 }}
       >
         <Badge variant="secondary" className="mb-4">
-          Welcome to Your New App
+          Welcome to Our Business
         </Badge>
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-          Build Beautiful Interfaces
-          <br />
-          With Altan AI
+          Transforming Ideas into Reality
         </h1>
         <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-         Start chatting to edit this app.
+          We provide innovative solutions to help your business grow.
         </p>
-        <Button size="lg" className="mt-4" onClick={() => navigate('/dashboard')}>
-          View sample dashboard <ArrowRight className="ml-2 h-4 w-4" />
+        <Button size="lg" className="mt-4" onClick={() => navigate('/contact')}>
+          Contact Us <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </motion.section>
 
@@ -62,9 +60,9 @@ export default function IndexPage() {
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                 <Component className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Reusable Components</h3>
+              <h3 className="text-xl font-bold">Innovative Solutions</h3>
               <p className="text-muted-foreground">
-                Pre-built components that you can easily customize and integrate into your projects.
+                We offer cutting-edge solutions tailored to your needs.
               </p>
             </CardContent>
           </Card>
@@ -76,9 +74,9 @@ export default function IndexPage() {
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                 <Palette className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Themeable Design</h3>
+              <h3 className="text-xl font-bold">Creative Design</h3>
               <p className="text-muted-foreground">
-                Easily customize the look and feel with our flexible theming system.
+                Our designs are crafted to captivate and engage your audience.
               </p>
             </CardContent>
           </Card>
@@ -90,37 +88,12 @@ export default function IndexPage() {
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                 <Zap className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Fast Development</h3>
+              <h3 className="text-xl font-bold">Fast Execution</h3>
               <p className="text-muted-foreground">
-                Speed up your development process with our ready-to-use components.
+                We ensure timely delivery without compromising on quality.
               </p>
             </CardContent>
           </Card>
-        </motion.div>
-      </motion.section>
-
-      {/* Components Preview Section */}
-      <motion.section
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        className="space-y-8"
-      >
-        <motion.div variants={fadeInUp} className="text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Explore Our Components
-          </h2>
-          <p className="mx-auto mt-4 max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-            Discover our extensive library of components, designed to help you build better interfaces.
-          </p>
-        </motion.div>
-
-        <motion.div 
-          variants={staggerContainer}
-          className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
-        >
-          {/* Add component previews here */}
-          {/* You can showcase some of your most important components */}
         </motion.div>
       </motion.section>
 
@@ -133,21 +106,21 @@ export default function IndexPage() {
       >
         <motion.div variants={fadeInUp}>
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-            Ready to Get Started?
+            Ready to Elevate Your Business?
           </h2>
           <p className="mx-auto mt-4 max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-            Start building your next project with our modern component library.
+            Contact us today to discuss how we can help you achieve your goals.
           </p>
           <div className="mt-6 flex justify-center gap-4">
-            <Button size="lg" variant="default">
-              Some CTA
+            <Button size="lg" variant="default" onClick={() => navigate('/services')}>
+              Our Services
             </Button>
-            <Button size="lg" variant="outline">
-              Main CTA
+            <Button size="lg" variant="outline" onClick={() => navigate('/contact')}>
+              Get in Touch
             </Button>
           </div>
         </motion.div>
       </motion.section>
     </div>
-  )
+  );
 }
