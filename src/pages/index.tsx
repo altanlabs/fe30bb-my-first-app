@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Carousel } from "@/components/ui/carousel";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -19,6 +20,14 @@ const staggerContainer = {
     }
   }
 };
+
+const dogImages = [
+  "https://images.unsplash.com/photo-1558788353-f76d92427f16",
+  "https://images.unsplash.com/photo-1560807707-8cc77767d783",
+  "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8",
+  "https://images.unsplash.com/photo-1517849845537-4d257902454a",
+  "https://images.unsplash.com/photo-1507146426996-ef05306b995a"
+];
 
 export default function IndexPage() {
   const navigate = useNavigate();
@@ -95,6 +104,29 @@ export default function IndexPage() {
             </CardContent>
           </Card>
         </motion.div>
+      </motion.section>
+
+      {/* Image Slider Section */}
+      <motion.section
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        className="space-y-8"
+      >
+        <motion.div variants={fadeInUp} className="text-center">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Our Lovely Dogs
+          </h2>
+          <p className="mx-auto mt-4 max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+            Enjoy a collection of adorable dog images.
+          </p>
+        </motion.div>
+
+        <Carousel className="w-full max-w-3xl mx-auto">
+          {dogImages.map((src, index) => (
+            <img key={index} src={src} alt={`Dog ${index + 1}`} className="w-full h-auto rounded-lg shadow-lg" />
+          ))}
+        </Carousel>
       </motion.section>
 
       {/* CTA Section */}
